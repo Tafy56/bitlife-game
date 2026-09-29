@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitLife - Life Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="menu-screen" class="screen active">
+            <div class="menu-content">
+                <h1>BitLife</h1>
+                <p class="subtitle">Life Simulator</p>
+                <button class="btn btn-large" onclick="startNewGame()">New Game</button>
+                <button class="btn btn-large" onclick="loadGame()">Load Game</button>
+                <button class="btn btn-large" onclick="showCredits()">Credits</button>
+            </div>
+        </div>
+
+        <div id="creation-screen" class="screen">
+            <div class="creation-content">
+                <h2>Create Your Character</h2>
+
+                <div class="input-group">
+                    <label>Name:</label>
+                    <input type="text" id="player-name" placeholder="Enter your name" maxlength="20">
+                </div>
+
+                <div class="input-group">
+                    <label>Gender:</label>
+                    <select id="player-gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Starting Country:</label>
+                    <select id="player-country">
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="France">France</option>
+                        <option value="Japan">Japan</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-large" onclick="createCharacter()">Begin Life</button>
+                <button class="btn btn-secondary" onclick="backToMenu()">Back</button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <h2 id="player-title"></h2>
+                <div class="age-display">Age: <span id="current-age">0</span></div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat">
+                    <label>Health</label>
+                    <div class="stat-bar"><div id="health-bar" class="stat-fill stat-health"></div></div>
+                    <span id="health-text">100/100</span>
+                </div>
+
+                <div class="stat">
+                    <label>Happiness</label>
+                    <div class="stat-bar"><div id="happiness-bar" class="stat-fill stat-happiness"></div></div>
+                    <span id="happiness-text">100/100</span>
+                </div>
+
+                <div class="stat">
+                    <label>Intelligence</label>
+                    <div class="stat-bar"><div id="intelligence-bar" class="stat-fill stat-intelligence"></div></div>
+                    <span id="intelligence-text">100/100</span>
+                </div>
+
+                <div class="stat">
+                    <label>Looks</label>
+                    <div class="stat-bar"><div id="looks-bar" class="stat-fill stat-looks"></div></div>
+                    <span id="looks-text">100/100</span>
+                </div>
+            </div>
+
+            <div class="money-display">💰 Money: $<span id="money-amount">50000</span></div>
+
+            <div class="actions-container">
+                <div class="action-section">
+                    <h3>Age Actions</h3>
+                    <button class="btn btn-action" onclick="passYear()">Pass Year</button>
+                </div>
+
+                <div class="action-section">
+                    <h3>Life Choices</h3>
+                    <button class="btn btn-action" onclick="showSchoolMenu()">School</button>
+                    <button class="btn btn-action" onclick="showWorkMenu()">Work</button>
+                    <button class="btn btn-action" onclick="showRelationshipMenu()">Relationships</button>
+                    <button class="btn btn-action" onclick="showHealthMenu()">Health & Gym</button>
+                </div>
+
+                <div class="action-section">
+                    <h3>Activities</h3>
+                    <button class="btn btn-action" onclick="studyAction()">Study</button>
+                    <button class="btn btn-action" onclick="partyAction()">Party</button>
+                    <button class="btn btn-action" onclick="gambleAction()">Gamble</button>
+                    <button class="btn btn-action" onclick="investAction()">Invest</button>
+                </div>
+            </div>
+
+            <div class="bottom-buttons">
+                <button class="btn btn-secondary" onclick="saveGame()">Save Game</button>
+                <button class="btn btn-secondary" onclick="backToMenu()">Main Menu</button>
+            </div>
+        </div>
+
+        <div id="event-screen" class="screen">
+            <div class="event-content">
+                <h2 id="event-title"></h2>
+                <p id="event-description"></p>
+                <div id="event-choices"></div>
+            </div>
+        </div>
+
+        <div id="credits-screen" class="screen">
+            <div class="credits-content">
+                <h2>Credits</h2>
+                <p>BitLife Clone - Life Simulator Game</p>
+                <p>Built with HTML, CSS & JavaScript</p>
+                <p>Inspired by BitLife</p>
+                <p style="margin-top: 30px; font-size: 12px; color: #999;">
+                    This is a fan-made educational project.<br>
+                    Not affiliated with BitLife Life Simulator.
+                </p>
+                <button class="btn btn-large" onclick="backToMenu()" style="margin-top: 30px;">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
